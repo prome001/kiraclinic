@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Clinic - Your Health, Our Priority | Nyagatare, Rwanda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #f9fafb;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0a7e8c;
+        }
+
+        .logo-text span {
+            color: #0ea5af;
+            font-weight: 300;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #444;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0ea5af;
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #0a7e8c;
+        }
+
+        .nav-menu a.active {
+            color: #0a7e8c;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #0a7e8c;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #0a7e8c 0%, #0ea5af 50%, #14b8c5 100%);
+            color: #fff;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #ffd700;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #fff;
+            color: #0a7e8c;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #0a7e8c;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title .underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #0a7e8c, #14b8c5);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== PARTNERSHIP ===== */
+        .partnership-bar {
+            background: #f0f7f8;
+            padding: 50px 0;
+            border-top: 3px solid #0ea5af;
+            border-bottom: 3px solid #0ea5af;
+        }
+
+        .partnership-bar .section-title {
+            margin-bottom: 35px;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .partner-logo {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 160px;
+            height: 110px;
+            font-weight: 600;
+            color: #0a7e8c;
+            font-size: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-3px);
+        }
+
+        .partner-logo img {
+            max-height: 50px;
+            max-width: 140px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+            border-bottom-color: #0ea5af;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: #0a7e8c;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* ===== DOCTORS ===== */
+        .bg-light {
+            background: #f0f7f8;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .doctor-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .doctor-img-wrap {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .doctor-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info {
+            padding: 20px;
+        }
+
+        .doctor-info h3 {
+            font-size: 20px;
+            color: #0a7e8c;
+            margin-bottom: 5px;
+        }
+
+        .doctor-info .specialty {
+            color: #0ea5af;
+            font-weight: 500;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .doctor-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            color: #0a7e8c;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-text ul li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .about-text ul li::before {
+            content: '✓';
+            color: #0ea5af;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 18px;
+            color: #0a7e8c;
+            margin-bottom: 3px;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-form h3 {
+            font-size: 22px;
+            color: #0a7e8c;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0ea5af;
+            background: #fff;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #0a7e8c, #0ea5af);
+            color: #fff;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(10, 126, 140, 0.3);
+        }
+
+        /* ===== SOCIAL MEDIA SECTION ===== */
+        .social-section {
+            background: linear-gradient(135deg, #0a7e8c, #0ea5af);
+            color: #fff;
+            text-align: center;
+            padding: 70px 0;
+        }
+
+        .social-section h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .social-section p {
+            opacity: 0.9;
+            margin-bottom: 35px;
+            font-size: 17px;
+        }
+
+        .social-icons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon-circle {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #fff;
+            transition: all 0.35s;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+        }
+
+        .social-icon-circle:hover {
+            background: #fff;
+            color: #0a7e8c;
+            transform: translateY(-6px) scale(1.05);
+            border-color: #fff;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-icon-circle .fab,
+        .social-icon-circle .fas {
+            font-size: 30px;
+        }
+
+        .social-handle {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .social-icon-circle:hover .social-handle {
+            opacity: 1;
+        }
+
+        .social-icon-wrap {
+            text-align: center;
+        }
+
+        /* ===== MAP ===== */
+        .map-section {
+            padding: 0;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 420px;
+            border: none;
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a2a3a;
+            color: #ccc;
+            padding: 50px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            padding-bottom: 35px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #0ea5af;
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            padding: 6px 0;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #0ea5af;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: #0ea5af;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 22px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer-bottom span {
+            color: #0ea5af;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0a7e8c, #0ea5af);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(10, 126, 140, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text ul li {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transform: translateY(-120%);
+                transition: transform 0.4s;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 60px 0 50px;
+            }
+
+            .partners-grid {
+                gap: 20px;
+            }
+
+            .partner-logo {
+                min-width: 120px;
+                height: 90px;
+                padding: 15px 18px;
+            }
+
+            .social-icons-wrapper {
+                gap: 18px;
+            }
+
+            .social-icon-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 26px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .hero-image img {
+                height: 240px;
+            }
+
+            .about-image img {
+                height: 240px;
+            }
+
+            .doctor-img-wrap {
+                height: 220px;
+            }
+
+            .social-icon-circle {
+                width: 52px;
+                height: 52px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://img.icons8.com/fluency/48/hospital.png" alt="Kira Clinic Logo" class="logo-img">
+                    <div class="logo-text">Kira<span>Clinic</span></div>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#partners">Partnership</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO / HOME ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Your Health, <span>Our Priority</span></h1>
+                    <p>Kira Clinic provides compassionate, high-quality healthcare services to the Nyagatare community. We are here for you and your family, every step of the way.</p>
+                    <a href="#contact" class="hero-btn">Book an Appointment</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=400&fit=crop" alt="Modern Kira Clinic facility in Nyagatare">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive medical care tailored to your needs</p>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>General Consultation</h3>
+                    <p>Expert primary care consultations for all ages with our experienced medical team.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🫀</div>
+                    <h3>Cardiology</h3>
+                    <p>Heart health assessments, ECG, and cardiovascular disease management.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <h3>Pediatrics</h3>
+                    <p>Specialized healthcare for infants, children, and adolescents from birth to 18 years.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤰</div>
+                    <h3>Maternity &amp; Gynecology</h3>
+                    <p>Prenatal care, delivery services, postnatal support, and women's health checkups.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>Laboratory &amp; Diagnostics</h3>
+                    <p>On-site lab testing, blood work, urinalysis, and diagnostic imaging services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💉</div>
+                    <h3>Vaccinations</h3>
+                    <p>Routine immunizations for children and adults, plus travel vaccines.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦷</div>
+                    <h3>Dental Care</h3>
+                    <p>Teeth cleaning, extractions, fillings, and oral health education.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Mental Health</h3>
+                    <p>Counseling, stress management, and mental health support services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOCTORS ===== -->
+    <section class="section bg-light" id="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Doctors</h2>
+                <p>Dedicated professionals committed to your well-being</p>
+                <div class="underline"></div>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" alt="Dr. Jean Pierre Habimana">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Jean Pierre Habimana</h3>
+                        <span class="specialty">General Practitioner &amp; Medical Director</span>
+                        <p>18+ years of experience in family medicine and community health. MBBS from University of Rwanda.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=300&fit=crop&crop=face" alt="Dr. Alice Mukamana">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Alice Mukamana</h3>
+                        <span class="specialty">Pediatrician</span>
+                        <p>Specialized in child healthcare with a gentle, caring approach. 12+ years of pediatric practice.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300&h=300&fit=crop&crop=face" alt="Dr. David Niyonzima">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. David Niyonzima</h3>
+                        <span class="specialty">Cardiologist</span>
+                        <p>Expert in heart disease prevention, diagnosis, and treatment. Fellowship in Cardiology from Kenya.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face" alt="Dr. Grace Uwimana">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Grace Uwimana</h3>
+                        <span class="specialty">Obstetrician &amp; Gynecologist</span>
+                        <p>Passionate about women's health and safe motherhood. 10+ years in obstetrics and gynecology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Kira Clinic</h2>
+                    <p>Kira Clinic was founded with one mission: to deliver accessible, compassionate, and high-quality healthcare to the community of <strong>Nyagatare District, Eastern Province, Rwanda</strong>. We believe that everyone deserves excellent medical care close to home.</p>
+                    <p>Our modern facility is equipped with the latest diagnostic tools and staffed by a team of dedicated healthcare professionals who put patients first. Since opening our doors, we have served thousands of patients from Nyagatare and surrounding sectors including Gatunda, Karama, Karangazi, Katabagemu, Kiyombe, Matimba, and beyond.</p>
+                    <ul>
+                        <li>Registered and licensed by the Rwanda Ministry of Health</li>
+                        <li>Modern equipment and clean, comfortable environment</li>
+                        <li>Affordable services with transparent pricing</li>
+                        <li>Open 6 days a week with emergency on-call service</li>
+                        <li>Community-focused health education programs</li>
+                        <li>Partnerships with RBC and local hospitals</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&h=400&fit=crop" alt="Kira Clinic interior waiting area">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTNERSHIP ===== -->
+    <section class="partnership-bar" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners &amp; Affiliations</h2>
+                <p>Working together for better healthcare in Nyagatare</p>
+                <div class="underline"></div>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="https://img.icons8.com/color/96/rwanda.png" alt="Rwanda Ministry of Health">
+                    <span>Rwanda MoH</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://img.icons8.com/color/96/ambulance.png" alt="Rwanda Biomedical Centre">
+                    <span>RBC</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://img.icons8.com/color/96/hospital-3.png" alt="Nyagatare Referral Hospital">
+                    <span>Nyagatare<br>Referral</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://img.icons8.com/color/96/red-cross.png" alt="Rwanda Red Cross">
+                    <span>Red Cross</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://img.icons8.com/color/96/united-nations.png" alt="World Health Organization">
+                    <span>WHO</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="https://img.icons8.com/color/96/charity.png" alt="Partners In Health">
+                    <span>PIH Rwanda</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOCIAL MEDIA ===== -->
+    <section class="social-section" id="social">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <p>Follow Kira Clinic on social media for health tips, clinic news, and community updates</p>
+            <div class="social-icons-wrapper">
+                <div class="social-icon-wrap">
+                    <a href="https://facebook.com/kiracinicrw" target="_blank" class="social-icon-circle" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <span class="social-handle">@kiracinicrw</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://instagram.com/kiracinicrw" target="_blank" class="social-icon-circle" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <span class="social-handle">@kiracinicrw</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://twitter.com/kiracinicrw" target="_blank" class="social-icon-circle" title="Twitter / X">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <span class="social-handle">@kiracinicrw</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://wa.me/250788123456" target="_blank" class="social-icon-circle" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <span class="social-handle">+250 788 123 456</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://youtube.com/@kiracinicrw" target="_blank" class="social-icon-circle" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <span class="social-handle">Kira Clinic</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://linkedin.com/company/kiracinicrw" target="_blank" class="social-icon-circle" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <span class="social-handle">Kira Clinic</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://tiktok.com/@kiracinicrw" target="_blank" class="social-icon-circle" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <span class="social-handle">@kiracinicrw</span>
+                </div>
+                <div class="social-icon-wrap">
+                    <a href="https://telegram.me/kiracinicrw" target="_blank" class="social-icon-circle" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span class="social-handle">Kira Clinic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you. Get in touch with us today.</p>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <h4>Our Address</h4>
+                            <p>KG 15 Avenue, Near Nyagatare Market<br>Nyagatare District, Eastern Province<br>Rwanda</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+250 788 123 456<br>+250 722 987 654<br><small style="color:#999;">Emergency: +250 788 000 911</small></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@kiracinic.rw<br>appointments@kiracinic.rw</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">🕐</div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p><strong>Mon - Fri:</strong> 7:00 AM - 6:00 PM<br><strong>Saturday:</strong> 8:00 AM - 2:00 PM<br><strong>Sunday:</strong> Closed (Emergency only)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number (optional)">
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">Select a Service</option>
+                                <option>General Consultation</option>
+                                <option>Cardiology</option>
+                                <option>Pediatrics</option>
+                                <option>Maternity &amp; Gynecology</option>
+                                <option>Laboratory &amp; Diagnostics</option>
+                                <option>Dental Care</option>
+                                <option>Mental Health</option>
+                                <option>Vaccinations</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAP ===== -->
+    <section class="map-section">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.754537259721!2d30.327535!3d-1.298632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dc1b8f5b8e5e2f%3A0x5c5f5b8e5e2f5c5f!2sNyagatare!5e0!3m2!1sen!2srw!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Kira Clinic location in Nyagatare District">
+        </iframe>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+                        <img src="https://img.icons8.com/fluency/36/hospital.png" alt="" style="border-radius:50%;">
+                        <span style="font-size:20px;font-weight:700;color:#fff;">Kira<span style="color:#0ea5af;">Clinic</span></span>
+                    </div>
+                    <p>Your trusted healthcare partner in Nyagatare District. Providing quality, compassionate medical care for the whole family since 2018.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/kiracinicrw" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/kiracinicrw" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/kiracinicrw" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://wa.me/250788123456" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com/@kiracinicrw" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/kiracinicrw" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://tiktok.com/@kiracinicrw" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#doctors">Our Doctors</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#social">Social Media</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📍 KG 15 Ave, Nyagatare</li>
+                        <li>📞 +250 788 123 456</li>
+                        <li>✉️ info@kiracinic.rw</li>
+                        <li>🕐 Mon-Fri: 7AM - 6PM</li>
+                        <li>🕐 Sat: 8AM - 2PM</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">General Consultation</a></li>
+                        <li><a href="#services">Cardiology</a></li>
+                        <li><a href="#services">Pediatrics</a></li>
+                        <li><a href="#services">Maternity</a></li>
+                        <li><a href="#services">Lab &amp; Diagnostics</a></li>
+                        <li><a href="#services">Dental Care</a></li>
+                        <li><a href="#services">Mental Health</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <span>Kira Clinic</span>. All Rights Reserved. | KG 15 Ave, Nyagatare District, Eastern Province, Rwanda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Active link highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Contact form submission (demo)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out to Kira Clinic! We will get back to you shortly.\n\nFor urgent matters, please call +250 788 123 456.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
